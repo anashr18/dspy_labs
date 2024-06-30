@@ -27,7 +27,7 @@ class Example(dotdict):
                 return {}
 
         demos = [d.copy(**at(d)) for d in self.demos]
-        print(demos)
+        # print(demos)
         return self.copy(demos=demos)
 
 
@@ -44,6 +44,7 @@ def sample(train, k: int):
 
     subset = shuffled_train[:k]
     subset = [xdspy.Example(x) for x in subset]
+
     # subset = [x for x in subset]
 
     return subset

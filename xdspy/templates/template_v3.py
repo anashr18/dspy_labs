@@ -1,4 +1,4 @@
-from xdspy.templates import passage2text, format_answers, Field
+from xdspy.templates import passages2text, format_answers, Field, TemplateV2
 
 
 class Type:
@@ -16,12 +16,12 @@ class Type:
         return Type(**kwargs)
 
 
-class Template:
+class Template(TemplateV2):
     def __init__(self, instruction, **kwargs):
         self.instruction = instruction
 
         self.fields = []
-        self.format_handlers = {"context": passage2text, "answers": format_answers}
+        self.format_handlers = {"context": passages2text, "answers": format_answers}
 
         for key, value in kwargs.items():
             print(key, value)
